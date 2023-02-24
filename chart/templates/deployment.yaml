@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-server
+spec:
+  selector:
+    matchLabels:
+      app: grpc-server
+  template:
+    metadata:
+      labels:
+        app: grpc-server
+    spec:
+      imagePullSecrets:
+        - name: "k8s-registry-creds"
+      containers:
+      - name: grpc-server
+        image: {{ .Values.image }}
+        imagePullPolicy: "Always"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "10m"
+        ports:
+        - containerPort: 8080
