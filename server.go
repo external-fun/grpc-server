@@ -37,7 +37,7 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 		name := ""
 		rows.Scan(&name)
 
-		names = append(names, name+"2")
+		names = append(names, name+"3")
 	}
 
 	fmt.Fprintf(w, "%s", strings.Join(names, "\n"))
