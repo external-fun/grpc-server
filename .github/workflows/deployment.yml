@@ -33,7 +33,7 @@ jobs:
           docker login 85.192.34.50:5000 --username registry --password ${REGISTRY_PASSWORD}
       - name: Build image
         run: |
-          docker build -t 85.192.34.50:5000/grpc-server:${{github.sha}} -f prod.dockerfile .
+          docker build -t 85.192.34.50:5000/grpc-server:${{github.sha}} -f dev.dockerfile .
       - name: Push image
         run: |
           docker push 85.192.34.50:5000/grpc-server:${{github.sha}}
