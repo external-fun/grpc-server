@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "/proto";
+
+service DatabaseExporter {
+  rpc UploadRows(stream Row) returns (Status) {}
+}
+
+message Row {
+  int32 clothesId = 1;
+  string clothesName = 2;
+  string brandName = 3;
+  int32 quantity = 4;
+  string categoryName = 5;
+  string sizeName = 6;
+}
+
+message Status {
+  string message = 1;
+}
